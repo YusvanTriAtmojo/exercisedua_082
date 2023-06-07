@@ -1,20 +1,71 @@
-// PD_Exercise2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+class bidangDatar {
+private:
+	int x;
+public:
+	bidangDatar() {
+		x = 0;
+	}
+	virtual void input (){}
+	virtual float Luas(int a) { return 0; }
+	virtual float Keliling(int a) { return 0; }
+	void setX(int a) {
+		this->x = a;
+	}
+	int getX() {
+		return x;
+	}
+};
+class Lingkaran : public bidangDatar {
+	void input() {
+		int x;
+		cout << "Lingkaran dibuat\n" <<  endl;
+		cout << "Masukkan jejari: ";
+		cin >> x;
+	}
+	float Luas() {
+		int a;
+		return 3,14 * a * a;
+		cout << "Luas lingkaran= " << endl;
+	}
+	float Keliling() {
+		int a;
+		return 3,14 * a * 2;
+		cout << "Keliling lingkaran= " << endl;
+	}
+};
+class Bujursangkar : public bidangDatar {
+	void input(int x) {
+		cout << "Bujursangkar dibuat\n" << endl;
+		cout << "Masukkan sisi: ";
+		cin >> x;
+	}
+	float Luas() {
+		int a;
+		return a * a;
+		cout << "Luas Bujursangkar= " << Luas << endl;
+	}
+	float Keliling() {
+		int a;
+		return 4 * a;
+		cout << "Keliling Bujursangkar= " << Keliling << endl;
+	}
+};
+
+int main() {
+	bidangDatar* bidang;
+	Lingkaran L;
+	Bujursangkar B;
+	bidang = &L;
+	bidang->input();
+	bidang->Luas(1);
+	bidang->Keliling(1);
+	bidang = &B;
+	bidang->input();
+	bidang->Luas(1);
+	bidang->Keliling(1);
+	system("pause");
+	return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
